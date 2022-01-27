@@ -2,8 +2,8 @@ events:
   beam_intensity: 1e4 #particles per spill, distribution in eventgenerator, uniform or not
   spill_duration: 4 #seconds, subtracted from 60 seconds cycle time
 
-  trigger_efficiency: 0.8 
-  noise_rate: 5 #Hz, rate from multi-PE (above thresh) dark pulses, or from trigger
+  trigger_efficiency: 1.0 
+  noise_rate: 500 #Hz, rate from multi-PE (above thresh) dark pulses, or from trigger
 
   #uniform distribution, if 1/miss_probability rolls then a would-be good event becomes a missed event. 
   #could be from the self trigger not making it in time, or the pulse being cut in half, or some other problem. 
@@ -14,10 +14,10 @@ events:
 
 daq:
 
-  trigger_hold_time : 0.3 #time is us to hond sampling waiting on trigger response 
+  trigger_hold_time : 0.8 #us, time to hold sampling waiting on trigger response 
   digitization_time: 85 #us, time to transfer data from chip to ACDC fifo memory
-  acdc_to_acc: 500 #us, time to transfer from ACDC to ACC over LVDS lines for one board per event
-  acc_to_pc: 10000 #us, time to transfer from ACC to computer over USB, per board per event
+  acdc_to_acc: 308 #us, time to transfer from ACDC to ACC over LVDS lines for one board per event
+  acc_to_pc: 1000 #us, time to transfer from ACC to computer over USB, per board per event
 
   acdc_fifo: 20 #number of events deep the fifo is on an acdc
   acc_fifo: 300 #number of events deep fifo is on acc

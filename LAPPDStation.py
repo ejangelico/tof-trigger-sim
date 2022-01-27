@@ -68,7 +68,7 @@ class LAPPDStation:
             self.eventClass[s] = np.concatenate( (np.full((len(evtGen.particle_times[s])), 1), np.full((len(self.noise_times[s])), 2)) )
             self.passTrigger[s] = np.concatenate( (evtGen.triggerMask[s], np.full((len(self.noise_times[s])), False)) )
             #resort arrays by event time 
-            args = np.argsort(self.allTimes[s])
+            args = np.argsort(self.allTimes[s], kind="mergesort")
             self.allTimes[s]  = self.allTimes[s][args]
             self.allDeadTimes[s] = self.allDeadTimes[s][args]
             self.eventClass[s]  = self.eventClass[s][args]
