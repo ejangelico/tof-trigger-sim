@@ -1,5 +1,5 @@
 events:
-  beam_intensity: 1e6 #particles per spill, distribution in eventgenerator, uniform or not
+  beam_intensity: 1e4 #particles per spill, distribution in eventgenerator, uniform or not
   spill_duration: 4 #seconds, subtracted from 60 seconds cycle time
 
   trigger_efficiency: 0.8 
@@ -13,6 +13,8 @@ events:
 
 
 daq:
+
+  trigger_hold_time : 0.3 #time is us to hond sampling waiting on trigger response 
   digitization_time: 85 #us, time to transfer data from chip to ACDC fifo memory
   acdc_to_acc: 500 #us, time to transfer from ACDC to ACC over LVDS lines for one board per event
   acc_to_pc: 10000 #us, time to transfer from ACC to computer over USB, per board per event
